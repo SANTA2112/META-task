@@ -1,6 +1,9 @@
 @import 'fonts.styl'
 $text-col = #555555
+$sup-col = #0bbbef
+$price-col = #ff4e00
 fs = 16px
+
 *
   margin 0
   padding 0
@@ -9,9 +12,9 @@ fs = 16px
   font-size 0
 body
   font-family "Roboto"
-
-.header
+.wrapper-bg
   padding 20px
+.header, .devices
   display flex
   justify-content center
   align-items center
@@ -34,3 +37,37 @@ body
   &__description
       margin-top 20px
       font-size fs
+      sup
+        color $sup-col
+        font-size 12px
+.devices
+  margin-top 40px
+  flex-direction: row
+  &__device
+    padding 35px
+  &__img
+    width 200px
+    height 230px
+    display block
+    text-decoration none
+    will-change transform
+    transition transform .5s
+    &:hover
+      transform translateY(-20px)
+    background-color rgba(0,0,0,.3)
+  &__color, &__device-name
+    font-size 11px
+    color #bebebe
+    text-align center
+    margin-top 12px
+  &__colors
+    margin-top 15px
+  &__device-name, &__price
+    margin-top 30px
+    font 36px small
+    color $text-col
+  &__price
+    margin-top 14px
+    text-transform uppercase
+    color $price-col
+    text-align center
