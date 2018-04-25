@@ -1,0 +1,14 @@
+mixin device(device)
+  a.devices__device(href="#1")
+    .devices__img(style=`background-image: url(${device.colors[0].image});`)
+    .devices__color= device.colors[0].title
+    .devices__colors
+      each color in device.colors
+        .devices__colorCircle(
+          data-image=color.image
+          data-price=color.price
+          data-color=color.title
+          style=`background-color: ${color.color}`
+        )
+    p.devices__device-name= device.name
+    h4.devices__price= device.colors[0].price

@@ -1,8 +1,7 @@
 @import 'fonts.styl'
-$text-col = #555555
-$sup-col = #0bbbef
-$price-col = #ff4e00
-$text-col2 = #82828c
+text-col = #555555
+sup-col = #0bbbef
+price-col = #ff4e00
 fs = 16px
 
 *
@@ -13,16 +12,44 @@ fs = 16px
   font-size 0
 body
   font-family "Roboto"
+  position relative
+  background url('/img/pattern-01.png')
+  box-shadow inset 0 0 400px rgba(0,0,0,.4)
+
 sup
-  color $sup-col
+  color sup-col
   font-size 10px
 .wrapper-bg
   padding 20px
   display flex
   justify-content space-between
-  flex-direction: column
+  flex-direction column
   width 100vw
   height 100vh
+.modal-search
+  @extends .wrapper-bg
+  display none
+  justify-content center
+  align-items center
+  position fixed
+  flex-direction row
+  top 0
+  left 0
+  background-color rgba(0,0,0,.9)
+  padding 0
+  z-index: 20
+  &__wrapper
+    width 700px
+  &__input, &__button
+    padding 15px
+    width 600px
+    font-size 14px
+    border-radius 8px
+  &__button
+    margin-left 15px
+    width 90px
+    padding 7px
+
 .header, .devices
   @extends .wrapper-bg
   padding 0
@@ -31,6 +58,8 @@ sup
   height auto
   &__search
     align-self: flex-end
+    text-decoration none
+    color #555
     &:before
       content "\f002"
       font-family "FontAwesome"
@@ -44,7 +73,8 @@ sup
     margin-top 25px
     font-size 26px
     font-weight 300
-    color $text-col
+    color text-col
+    text-align center
   &__description
       margin-top 20px
       font-size fs
@@ -53,18 +83,32 @@ sup
   flex-direction row
   flex-wrap wrap
   justify-content center
+  &__colorCircle
+    width 20px
+    height 20px
+    border-radius 50%
+    margin-right 24px
+    &:last-child
+      margin-right 0
   &__device
     padding 35px
+    text-decoration none
+    margin-right 25px
+    :&last-child
+      margin 0
   &__img
     width 200px
-    height 230px
+    height 240px
     display block
     text-decoration none
     will-change transform
     transition transform .5s
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
     &:hover
       transform translateY(-20px)
-    background-color rgba(0,0,0,.3)
+
   &__color, &__device-name
     font-size 11px
     color #bebebe
@@ -72,22 +116,25 @@ sup
     margin-top 12px
   &__colors
     margin-top 15px
+    display flex
+    justify-content center
   &__device-name, &__price
     margin-top 30px
     font-size 36px
     font-weight 300
-    color $text-col2
+    color lighten(text-col, 25%)
   &__price
     margin-top 14px
     text-transform uppercase
-    color $price-col
+    color price-col
     text-align center
 
 .troling, .contacts
   @extends .devices__color
 
-@media only screen and (max-width: 940px)
+@media only screen and (max-width: 850px)
   .wrapper-bg
     width auto
     height auto
-
+  .devices__device
+    margin-right 0
