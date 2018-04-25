@@ -2,6 +2,7 @@
 $text-col = #555555
 $sup-col = #0bbbef
 $price-col = #ff4e00
+$text-col2 = #82828c
 fs = 16px
 
 *
@@ -12,8 +13,14 @@ fs = 16px
   font-size 0
 body
   font-family "Roboto"
+sup
+  color $sup-col
+  font-size 10px
 .wrapper-bg
   padding 20px
+  display flex
+  justify-content space-between
+  flex-direction: column
 .header, .devices
   display flex
   justify-content center
@@ -32,14 +39,12 @@ body
     height 38px
   &__product, &__description
     margin-top 25px
-    font 26px small
+    font-size 26px
+    font-weight 300
     color $text-col
   &__description
       margin-top 20px
       font-size fs
-      sup
-        color $sup-col
-        font-size 12px
 .devices
   margin-top 40px
   flex-direction: row
@@ -64,10 +69,14 @@ body
     margin-top 15px
   &__device-name, &__price
     margin-top 30px
-    font 36px small
-    color $text-col
+    font-size 36px
+    font-weight 300
+    color $text-col2
   &__price
     margin-top 14px
     text-transform uppercase
     color $price-col
     text-align center
+
+.troling, .contacts
+  @extends .devices__color
