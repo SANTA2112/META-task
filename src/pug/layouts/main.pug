@@ -9,5 +9,7 @@ html(lang="ru")
     title= title
     link(rel="stylesheet", href="css/style.css")
   body
-    block content
+    #wrapper
+      block content
+    include ../blocks/modal.pug
     script(src="../js/script.js")

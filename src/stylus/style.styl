@@ -10,12 +10,24 @@ fs = 16px
   box-sizing border-box
   outline 0
   font-size 0
-body
+body {
+  background-image: linear-gradient(to right, gray, lightgray);
+  perspective: 800px;
+  position: relative;
+  overflow-x: hidden;
+}
+#wrapper
   font-family "Roboto"
   position relative
   background url('/img/pattern-01.png')
   box-shadow inset 0 0 400px rgba(0,0,0,.4)
-
+  transform-style: preserve-3d
+  transition: transform 1s .7s;
+  will-change: transform;
+  &.active
+    transform: scale(.7) rotateY(5deg);
+    transition: transform 1s;
+    will-change: transform;
 sup
   color sup-col
   font-size 10px
@@ -28,16 +40,21 @@ sup
   height 100vh
 .modal-search
   @extends .wrapper-bg
-  display none
+  display flex
   justify-content center
   align-items center
   position fixed
   flex-direction row
   top 0
-  left 0
-  background-color rgba(0,0,0,.9)
+  left 100%
+  background-color rgba(0,0,0,.7)
   padding 0
   z-index: 20
+  transition transform .7s
+  &.active
+    transform translateX(-100%)
+    transition transform 1s .7s
+    will-change: transform
   &__wrapper
     width 700px
   &__input, &__button

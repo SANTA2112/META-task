@@ -2,10 +2,13 @@ const search = document.getElementById("search");
 const modal = document.getElementsByClassName("modal-search")[0];
 const colorCircles = document.querySelectorAll('.devices__colorCircle');
 const devicesBlocks = document.querySelectorAll('.devices__device');
+const wrapper = document.querySelector('#wrapper');
 
 search.addEventListener("click", e => {
   e.preventDefault();
-  modal.style.display = "flex";
+  wrapper.classList.add('active')
+  modal.classList.add('active')
+  //modal.style.display = "flex";
 });
 
 modal.addEventListener('submit', (e) => {
@@ -17,7 +20,10 @@ modal.addEventListener('submit', (e) => {
 
 modal.addEventListener("click", e => {
   e.stopPropagation()
-  if(e.target === e.currentTarget) modal.style.display = "";
+  if(e.target === e.currentTarget) {
+    modal.classList.remove('active')
+    wrapper.classList.remove('active')
+  }
 });
 
 devicesBlocks.forEach(link => link.onclick = e => !e.target.matches('.devices__colorCircle'))
