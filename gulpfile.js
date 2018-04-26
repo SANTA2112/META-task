@@ -23,6 +23,10 @@ gulp.task('images', () => {
   gulp.src('./src/images/**/*.*')
     .pipe(gulp.dest('./dest/img'));
 })
+gulp.task('fonts', () => {
+  gulp.src('./src/fonts/**/*.*')
+    .pipe(gulp.dest('./dest/fonts'));
+})
 gulp.task("js", function() {
   return gulp
     .src("./src/js/**/*.js")
@@ -37,4 +41,4 @@ gulp.task("watch", function() {
 
 });
 
-gulp.task("default", ["styles", "pug", "js", "images", "watch"]);
+gulp.task("default", ["styles", "pug", "js", "images", "fonts" , "watch"]);
