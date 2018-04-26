@@ -42,3 +42,4 @@ gulp.task("watch", function() {
 });
 
 gulp.task("default", ["styles", "pug", "js", "images", "fonts" , "watch"]);
+gulp.task("build", ["styles", "pug", "js", "images", "fonts" ]);

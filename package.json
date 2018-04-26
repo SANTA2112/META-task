@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "server": "browser-sync start -s ./dest"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,8 @@
     "gulp-pug": "^4.0.1",
     "gulp-stylus": "^2.7.0",
     "pug": "^2.0.3"
+  },
+  "dependencies": {
+    "browser-sync": "^2.23.7"
   }
 }
